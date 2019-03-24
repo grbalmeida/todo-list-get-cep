@@ -16,7 +16,7 @@ class SearchCepContainer extends PureComponent {
     const response = await ajax().get(`https://viacep.com.br/ws/${cep}/json/`)
 
     this.setState({ isFetching: false })
-    this.props.dispatch(updateAddress(response))
+    this.props.updateAddress(response)
   }
 
   render () {
@@ -34,4 +34,8 @@ const mapStateToProps = (state) => ({
   address: state.address
 })
 
-export default connect(mapStateToProps)(SearchCepContainer)
+const mapDispatchToProps = {
+  updateAddress
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchCepContainer)
