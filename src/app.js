@@ -5,12 +5,18 @@ import { connect } from 'react-redux'
 import Form from 'components/form'
 import TodosList from 'components/todos-list'
 import Filter from 'components/filter'
+import SearchCep from 'components/search-cep'
 
 const App = () => (
   <div>
-    <Form />
-    <TodosList />
-    <Filter />
+    <div>
+      <Form />
+      <TodosList />
+      <Filter />
+    </div>
+    <div>
+      <SearchCep />
+    </div>
   </div>
 )
 
