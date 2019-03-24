@@ -13,15 +13,20 @@ class SearchCepContainer extends PureComponent {
     uf: ''
   }
 
-  async componentDidMount () {
-    const response = await ajax().get('https://viacep.com.br/ws/06233030/json/')
+  handleSubmit = async (e) => {
+    e.preventDefault()
 
+    const cep = e.target.cep.value
+    const response = await ajax().get(`https://viacep.com.br/ws/${cep}/json/`)
     this.setState(response)
   }
 
   render () {
     return (
-      <SearchCep {...this.state} />
+      <SearchCep
+        {...this.state}
+        handleSubmit={this.handleSubmit}
+      />
     )
   }
 }

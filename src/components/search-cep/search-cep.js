@@ -7,10 +7,11 @@ const SearchCep = ({
   localidade,
   cep,
   bairro,
-  uf
+  uf,
+  handleSubmit
 }) => (
   <div>
-    <form>
+    <form onSubmit={handleSubmit}>
       <input type='text' name='cep' />
       <button type='submit'>Buscar endereço</button>
     </form>
