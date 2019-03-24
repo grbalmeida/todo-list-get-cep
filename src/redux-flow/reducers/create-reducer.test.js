@@ -56,7 +56,7 @@ it('initialState should not be undefined', () => {
 it('handleActions should not be different from object', () => {
   try {
     createReducer([])
-  } catch(e) {
+  } catch (e) {
     expect(e.message).to.be.equal('createReducer expects second argument as an object representing reducer')
   }
 })
