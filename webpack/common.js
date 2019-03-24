@@ -22,7 +22,7 @@ module.exports = {
   },
 
   htmlPluginConfig: {
-    title: 'My app',
+    title: 'Todo List',
     template: join(paths.src, 'html', 'template.html')
   },
 
