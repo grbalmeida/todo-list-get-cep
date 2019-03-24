@@ -8,12 +8,15 @@ const SearchCep = ({
   cep,
   bairro,
   uf,
+  isFetching,
   handleSubmit
 }) => (
   <div>
     <form onSubmit={handleSubmit}>
       <input type='text' name='cep' />
-      <button type='submit'>Buscar endereço</button>
+      <button type='submit' disabled={isFetching}>
+        {isFetching ? 'Buscando...' : 'Buscar endereço'}
+      </button>
     </form>
     <table>
       <thead>
