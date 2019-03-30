@@ -1,10 +1,11 @@
 'use strict'
 
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import rootReducer from 'reducers'
 
-export default () => {
-  const store = createStore(rootReducer)
+export default ({ initialState } = {}) => {
+  const store = createStore(rootReducer, initialState, applyMiddleware(thunk))
 
   if (module.hot) {
     module.hot.accept('reducers', () => {
