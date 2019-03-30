@@ -3,12 +3,11 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import App from './app'
-import reducer from 'reducers'
+import configureStore from './redux-flow/configure-store'
 
-const store = createStore(reducer)
+const store = configureStore()
 
 const renderApp = (NextApp) => {
   render(
@@ -27,10 +26,5 @@ if (module.hot) {
   module.hot.accept('./app', () => {
     const NextApp = require('./app').default
     renderApp(NextApp)
-  })
-
-  module.hot.accept('reducers', () => {
-    const nextReducer = require('reducers').default
-    store.replaceReducer(nextReducer)
   })
 }
